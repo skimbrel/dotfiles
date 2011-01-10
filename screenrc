@@ -1,0 +1,10 @@
+escape ^\\
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%10` %{dd} %{r}%n  %{-b dd}%-w%{b}%n* %t%{-}%+w%<"
+encoding UTF-8
+defutf8 on
+defscrollback 5000
+
+autodetach on
+
