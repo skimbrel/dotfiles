@@ -60,3 +60,7 @@ the syntax class ')'."
 
 (setq auto-mode-alist
  (append '(("\\.t$" . cperl-mode)) auto-mode-alist ))
+
+(load (expand-file-name "~/.emacs.d/xml-rpc.el"))
+(load (expand-file-name "~/.emacs.d/confluence.el"))
+(setf confluence-url "http://wiki.videoegg.com/rpc/xmlrpc"))
