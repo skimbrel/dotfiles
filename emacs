@@ -63,4 +63,4 @@ the syntax class ')'."
 
 (load (expand-file-name "~/.emacs.d/xml-rpc.el"))
 (load (expand-file-name "~/.emacs.d/confluence.el"))
-(setf confluence-url "http://wiki.videoegg.com/rpc/xmlrpc"))
+(setf confluence-url "http://wiki.videoegg.com/rpc/xmlrpc")
