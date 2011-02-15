@@ -2,6 +2,15 @@
 ;;; cperl-mode is preferred to perl-mode
 (defalias 'perl-mode 'cperl-mode)
 
+(setq
+    cperl-close-paren-offset -4
+    cperl-continued-statement-offset 4
+    cperl-indent-level 4
+    cperl-indent-parens-as-block t
+    cperl-tabs-always-indent t)
+
+
+
 (if (fboundp 'global-font-lock-mode)
     (global-font-lock-mode 1)
   (setq font-lock-auto-fontify t))
@@ -61,6 +70,10 @@ the syntax class ')'."
 (setq auto-mode-alist
  (append '(("\\.t$" . cperl-mode)) auto-mode-alist ))
 
-(load (expand-file-name "~/.emacs.d/xml-rpc.el"))
-(load (expand-file-name "~/.emacs.d/confluence.el"))
-(setf confluence-url "http://wiki.videoegg.com/rpc/xmlrpc"))
+;(load (expand-file-name "~/.emacs.d/xml-rpc.el"))
+;(load (expand-file-name "~/.emacs.d/confluence.el"))
+;(setf confluence-url "http://wiki.videoegg.com/rpc/xmlrpc"))
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+(setq-default c-basic-offset 4)
