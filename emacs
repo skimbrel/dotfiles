@@ -75,7 +75,7 @@ the syntax class ')'."
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 (setq-default c-basic-offset 4)
 
-(load (expand-file-name "~/.emacs.d/xml-rpc.el"))
-(load (expand-file-name "~/.emacs.d/confluence.el"))
-(setf confluence-url "http://wiki.videoegg.com/rpc/xmlrpc")
-
+(setq backup-directory-alist
+     `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+     `((".*" ,temporary-file-directory t)))
