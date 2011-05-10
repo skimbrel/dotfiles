@@ -61,7 +61,7 @@ the syntax class ')'."
 
 ;; we like TT-mode
 (setq load-path
-    (cons "/home/comet/.emacs.d/" load-path))
+    (cons "~/.emacs.d/" load-path))
 
 (autoload 'tt-mode "tt-mode")
 (setq auto-mode-alist
