@@ -7,37 +7,42 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-EDITOR=emacs
-export EDITOR
+export EDITOR=vim
 
-PATH=/usr/local/bin/6a/perl:$PATH
+PATH=~/bin:${PATH}
 export PATH
 
-TYPECORE_ZYGOTE_SOCK=/tmp/zygote
-export TYPECORE_ZYGOTE_SOCK
+export PYTHONPATH=$PYTHONPATH:~/py-lib:~/bin 
 
-alias bounce='cfkctl restart'
-alias down='cfkctl stop'
-alias status='cfkctl status'
-alias up='cfkctl start'
-alias userinfo='core/tools/run-in-zygote archetype/tools/admin-user --info'
-alias makepro='core/tools/run-in-zygote archetype/tools/admin-user --addrole="pro"'
-alias debug='phenotype/tools/debug'
-alias zygote='core/tools/run-in-zygote'
-
-
+alias l="ls"
 alias ll="ls -l --group-directories-first"
 alias ls='ls -hF --color'  # add colors for filetype recognition
-alias la='ls -Al'          # show hidden files
-alias lx='ls -lXB'         # sort by extension
-alias lk='ls -lSr'         # sort by size, biggest last
-alias lc='ls -ltcr'        # sort by and show change time, most recent last
-alias lu='ls -ltur'        # sort by and show access time, most recent last
-alias lt='ls -ltr'         # sort by date, most recent last
-alias lm='ls -al |more'    # pipe through 'more'
-alias lr='ls -lR'          # recursive ls
-alias tree='tree -Csu'     # nice alternative to 'recursive ls'
+alias attach="~/.bash_helpers/grabssh.sh && screen -Urd"
+alias fixssh="source ~/.bash_helpers/fixssh"
+alias tcomp='cheetah compile --nobackup --settings="allowNestedDefScopes=False,useAutocalling=True" --iext=".tmpl"'
+alias temps='scons --templates-only'
+alias unfuck='make clean && git clean -dfx && make && pgctl stop && pgctl start'
+alias boing='pgctl restart'
+alias on='pgctl start'
+alias off='pgctl stop'
+alias g='git'
+alias status='git status'
+alias log='git log'
+alias co='git checkout'
+alias shove='git push origin HEAD'
+alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { print foo[user] \" \" user }}' | sort -rn"
 
-#export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
 . ~/.git-completion.sh
 . ~/.bash_prompt
+
+#export PYTHONPATH=~/lib/python:$PYTHONPATH
+
+shopt -s autocd # a command name that is the name of a directory is executed as if it were the argument to the cd command.
+shopt -s cdspell # If set, minor errors in the spelling of a directory component in a cd command will be corrected.
+shopt -s dirspell # attempts spelling correction on directory names during word completion if the directory name initially supplied does not exist.
+shopt -s globstar # the pattern ** used in a pathname expansion context will match a files and zero or more directories and subdirectories.  If the pattern is followed by a /, only directories and subdirectories match.
+HISTTIMEFORMAT='%F %T ' # Put timestamps in .bash_history
+export HISTTIMEFORMAT
+shopt -s histappend # the history list is appended to the file named by the value of the HISTFILE variable when the shell exits, rather than  over‐writing the file.
+export HISTFILESIZE=10000 # More history.
+shopt -s lithist # multi-line commands are saved to the history with embedded newlines rather than using semicolon separators where possible.
