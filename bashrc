@@ -9,14 +9,12 @@ fi
 
 export EDITOR=vim
 
-PATH=~/bin:${PATH}
+PATH=/usr/local/bin:/usr/local/sbin:~/bin:${PATH}
 export PATH
 
 export PYTHONPATH=$PYTHONPATH:~/py-lib:~/bin 
 
 alias l="ls"
-alias ll="ls -l --group-directories-first"
-alias ls='ls -hF --color'  # add colors for filetype recognition
 alias attach="~/.bash_helpers/grabssh.sh && screen -Urd"
 alias fixssh="source ~/.bash_helpers/fixssh"
 alias tcomp='cheetah compile --nobackup --settings="allowNestedDefScopes=False,useAutocalling=True" --iext=".tmpl"'
@@ -31,6 +29,8 @@ alias log='git log'
 alias co='git checkout'
 alias shove='git push origin HEAD'
 alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { print foo[user] \" \" user }}' | sort -rn"
+alias tm='open -a TextMate'
+alias h='ssh'
 
 . ~/.git-completion.sh
 . ~/.bash_prompt
@@ -46,3 +46,7 @@ export HISTTIMEFORMAT
 shopt -s histappend # the history list is appended to the file named by the value of the HISTFILE variable when the shell exits, rather than  over‐writing the file.
 export HISTFILESIZE=10000 # More history.
 shopt -s lithist # multi-line commands are saved to the history with embedded newlines rather than using semicolon separators where possible.
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+set -o vi
