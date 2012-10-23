@@ -1,6 +1,6 @@
-vimrc notes: 
+vimrc notes:
  - install pathogen: https://github.com/tpope/vim-pathogen
- - then install solarized: http://ethanschoonover.com/solarized/vim-colors-solarized
- - then install fugitive: https://github.com/tpope/vim-fugitive
- - then install easymotion: git://github.com/Lokaltog/vim-easymotion.git
+
+then git submodule update --init
+
 
