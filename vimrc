@@ -21,9 +21,6 @@ set background=dark
 set t_Co=256
 colorscheme solarized
 
-" Load filetype plugin for omnicomplete.
-filetype plugin indent on
-
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
 " Description: A minimal, but feature rich, example .vimrc. If you are a
@@ -140,21 +137,23 @@ set pastetoggle=<F11>
 
 
 "------------------------------------------------------------
-" Indentation options {{{1
+" Indentation options
 "
 " Indentation settings according to personal preference.
 
-" Indentation settings for using 2 spaces instead of tabs.
+" if some codebase wants tabs:
+"if has('autocmd')
+"    autocmd BufEnter */foo/* setlocal noexpandtab
+"    autocmd BufEnter */foo/* setlocal shiftwidth=4   " autoindent
+"    autocmd BufEnter */foo/* setlocal tabstop=4      " width of existing physical tabs
+"    autocmd BufEnter */foo/* setlocal softtabstop=4  " distance Tab key moves
+"endif
+
+" Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" two characters wide.
-"set shiftwidth=4
-"set tabstop=4
-
 
 "------------------------------------------------------------
 " Mappings {{{1
@@ -173,13 +172,16 @@ nnoremap <C-L> :nohl<CR><C-L>
 set tags=./tags;/
 
 " Omni Completion
-autocmd FileType html :set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
+"autocmd FileType html :set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType c set omnifunc=ccomplete#Complete
+
+" Disable autoinclude for faster tab complete.
+set complete-=i
 
 " automatically figure out if we want Tab or complete
 function! Mosh_Tab_Or_Complete()
@@ -190,7 +192,7 @@ function! Mosh_Tab_Or_Complete()
 endfunction
 inoremap <Tab> <C-R>=Mosh_Tab_Or_Complete()<CR>
 
-" the whitespace, it burns
+" highlight the evil spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -198,3 +200,17 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" A couple fun Python tricks.
+let @t='ceTrue'
+let @f='ceFalse'
+nmap <leader>t @t
+nmap <leader>f @f
+
+let @d='Oimport ipdb; ipdb.set_trace()'
+nmap <leader>d @d
+
+" ctrl+p settings
+let g:ctrlp_working_path_mode = 2
+
+" numbers.vim binding
+nnoremap <leader>n :NumbersToggle<CR>
