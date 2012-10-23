@@ -15,6 +15,7 @@ export PATH
 export PYTHONPATH=$PYTHONPATH:~/py-lib:~/bin 
 
 alias l="ls"
+alias ll="ls -l --group-directories-first"
 alias attach="~/.bash_helpers/grabssh.sh && screen -Urd"
 alias fixssh="source ~/.bash_helpers/fixssh"
 alias tcomp='cheetah compile --nobackup --settings="allowNestedDefScopes=False,useAutocalling=True" --iext=".tmpl"'
@@ -47,6 +48,10 @@ shopt -s histappend # the history list is appended to the file named by the valu
 export HISTFILESIZE=10000 # More history.
 shopt -s lithist # multi-line commands are saved to the history with embedded newlines rather than using semicolon separators where possible.
 
+<<<<<<< Updated upstream
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 set -o vi
+=======
+source ~/perl5/perlbrew/etc/bashrc
+>>>>>>> Stashed changes
