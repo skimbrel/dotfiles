@@ -12,18 +12,10 @@ export EDITOR=vim
 PATH=/usr/local/bin:/usr/local/sbin:~/bin:${PATH}
 export PATH
 
-export PYTHONPATH=$PYTHONPATH:~/py-lib:~/bin 
-
 alias l="ls"
 alias ll="ls -l --group-directories-first"
 alias attach="~/.bash_helpers/grabssh.sh && screen -Urd"
 alias fixssh="source ~/.bash_helpers/fixssh"
-alias tcomp='cheetah compile --nobackup --settings="allowNestedDefScopes=False,useAutocalling=True" --iext=".tmpl"'
-alias temps='scons --templates-only'
-alias unfuck='make clean && git clean -dfx && make && pgctl stop && pgctl start'
-alias boing='pgctl restart'
-alias on='pgctl start'
-alias off='pgctl stop'
 alias g='git'
 alias status='git status'
 alias log='git log'
@@ -36,8 +28,6 @@ alias h='ssh'
 . ~/.git-completion.sh
 . ~/.bash_prompt
 
-#export PYTHONPATH=~/lib/python:$PYTHONPATH
-
 shopt -s autocd # a command name that is the name of a directory is executed as if it were the argument to the cd command.
 shopt -s cdspell # If set, minor errors in the spelling of a directory component in a cd command will be corrected.
 shopt -s dirspell # attempts spelling correction on directory names during word completion if the directory name initially supplied does not exist.
@@ -48,10 +38,10 @@ shopt -s histappend # the history list is appended to the file named by the valu
 export HISTFILESIZE=10000 # More history.
 shopt -s lithist # multi-line commands are saved to the history with embedded newlines rather than using semicolon separators where possible.
 
-<<<<<<< Updated upstream
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 set -o vi
-=======
-source ~/perl5/perlbrew/etc/bashrc
->>>>>>> Stashed changes
+
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi

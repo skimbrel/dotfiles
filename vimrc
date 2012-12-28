@@ -213,4 +213,9 @@ nmap <leader>d @d
 let g:ctrlp_working_path_mode = 2
 
 " numbers.vim binding
-nnoremap <leader>n :NumbersToggle<CR>
+"nnoremap <leader>n :NumbersToggle<CR>
+"
+
+" No auto-popup from jedi on typing dot, thanks.
+let g:jedi#popup_on_dot = 0
+let g:jedi#get_definition_command = "<leader>e"
