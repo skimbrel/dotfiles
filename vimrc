@@ -164,9 +164,9 @@ set expandtab
 " which is the default
 map Y y$
 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
+" Map <C-O> to turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-O> :nohl<CR>
 
 " Load ctags.
 set tags=./tags;/
@@ -212,10 +212,28 @@ nmap <leader>d @d
 " ctrl+p settings
 let g:ctrlp_working_path_mode = 2
 
-" numbers.vim binding
-"nnoremap <leader>n :NumbersToggle<CR>
-"
-
 " No auto-popup from jedi on typing dot, thanks.
 let g:jedi#popup_on_dot = 0
 let g:jedi#get_definition_command = "<leader>e"
+
+" Easier jumping around in splits
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+
+" Tab tweaks
+set showtabline=2
+nnoremap \l :tabn<CR>
+nnoremap \h :tabp<CR>
+
+" Quit all the things more easily
+nnoremap :Q :qa
+nnoremap :Q! :qa!
+
+let g:bike_progress = 1
+source ~/.vim/plugin/bike.vim
+
+" pymode tweaks
+" SQLAlchemy makes us use == None, == True, == False so ignore PEP8 E711,712
+let g:pymode_lint_ignore = "E711,E712"
