@@ -1,0 +1,48 @@
+## Python stuff
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Rope
+.ropeproject
+
+# Linesman
+linesman-enabled
+sessions.db
+
+# Logs
+*.log
+
+## Databases
+*.db
+*.sqlite
+*.sqlite3
+
+## Swapfiles
+*.sw[op]

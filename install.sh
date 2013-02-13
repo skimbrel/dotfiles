@@ -11,3 +11,4 @@ ln -s ~/dotfiles/bundle ~/.vim/bundle
 git submodule update --init
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/ackrc ~/.ackrc
+ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
