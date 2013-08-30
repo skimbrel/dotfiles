@@ -203,8 +203,8 @@ autocmd BufWinLeave * call clearmatches()
 " A couple fun Python tricks.
 let @t='ceTrue'
 let @f='ceFalse'
-nmap <leader>t @t
-nmap <leader>f @f
+nmap <leader>T @t
+nmap <leader>F @f
 
 let @d='Oimport ipdb; ipdb.set_trace()'
 nmap <leader>d @d
@@ -239,18 +239,23 @@ let g:pymode_rope_goto_def_newwin = ":tabe"
 " twilio test runner
 function! RunTestsInFile()
     if(&ft=='php')
-        :execute "!" . "/usr/local/bin/phpunit -d memory_limit=512M -c /usr/local/twilio/src/php/tests/config.xml --bootstrap /usr/local/twilio/src/php/tests/bootstrap.php " . bufname('%') . ' \| grep -v Configuration \| egrep -v "^$" '
+      :execute "!" . "/usr/local/bin/phpunit " . bufname('%')
+    elseif(&ft=='go')
+      exec ":!gp test"
+    elseif(&ft=='javascript')
+      exec ":!jasmine-node " . bufname('%')
     elseif(&ft=='python')
-        exec ":!" . ". venv/bin/activate; nosetests " . bufname('%') 
+      exec ":!" . ". venv/bin/activate; nosetests " . bufname('%')  . " --stop"
     endif
 endfunction
+
 
 " more shortcut goodness
 nmap <leader>L :PyLint<CR>
 nmap <leader>a :Ack
 nmap <leader>A :AckAdd
 nmap <leader>b :Gblame<CR>
-nmap <leader>r :RunTestsInFile<CR>
+nmap <leader>r :call RunTestsInFile()<CR>
 
 " Quick toggle for relative numbers
 function! NumberToggle()
@@ -265,3 +270,6 @@ nnoremap <leader>n :call NumberToggle()<cr>
 
 " enable them by default
 set relativenumber
+
+" load command-t help fns
+:call pathogen#helptags()

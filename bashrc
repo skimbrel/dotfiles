@@ -26,6 +26,7 @@ alias tm='open -a TextMate'
 alias h='ssh'
 alias gfo='git fetch origin'
 alias gpo='git push origin'
+alias gps='git push skimbrel'
 alias gyo='git pull origin'
 
 . ~/.git-completion.sh
