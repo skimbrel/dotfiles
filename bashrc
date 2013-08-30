@@ -24,6 +24,9 @@ alias shove='git push origin HEAD'
 alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { print foo[user] \" \" user }}' | sort -rn"
 alias tm='open -a TextMate'
 alias h='ssh'
+alias gfo='git fetch origin'
+alias gpo='git push origin'
+alias gyo='git pull origin'
 
 . ~/.git-completion.sh
 . ~/.bash_prompt
@@ -45,3 +48,9 @@ set -o vi
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
