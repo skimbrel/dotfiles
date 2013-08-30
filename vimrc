@@ -142,12 +142,12 @@ set pastetoggle=<F11>
 " Indentation settings according to personal preference.
 
 " if some codebase wants tabs:
-"if has('autocmd')
-"    autocmd BufEnter */foo/* setlocal noexpandtab
-"    autocmd BufEnter */foo/* setlocal shiftwidth=4   " autoindent
-"    autocmd BufEnter */foo/* setlocal tabstop=4      " width of existing physical tabs
-"    autocmd BufEnter */foo/* setlocal softtabstop=4  " distance Tab key moves
-"endif
+if has('autocmd')
+    autocmd BufEnter *.java setlocal noexpandtab
+    autocmd BufEnter *.java setlocal shiftwidth=8   " autoindent
+    autocmd BufEnter *.java setlocal tabstop=8      " width of existing physical tabs
+    autocmd BufEnter *.java setlocal softtabstop=8  " distance Tab key moves
+endif
 
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
@@ -212,10 +212,6 @@ nmap <leader>d @d
 " ctrl+p settings
 let g:ctrlp_working_path_mode = 2
 
-" No auto-popup from jedi on typing dot, thanks.
-let g:jedi#popup_on_dot = 0
-let g:jedi#get_definition_command = "<leader>e"
-
 " Easier jumping around in splits
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
@@ -224,16 +220,48 @@ nnoremap <C-K> <C-W>k
 
 " Tab tweaks
 set showtabline=2
-nnoremap \l :tabn<CR>
-nnoremap \h :tabp<CR>
+nnoremap <leader>l :tabn<CR>
+nnoremap <leader>h :tabp<CR>
 
 " Quit all the things more easily
 nnoremap :Q :qa
 nnoremap :Q! :qa!
 
-let g:bike_progress = 1
-source ~/.vim/plugin/bike.vim
-
 " pymode tweaks
 " SQLAlchemy makes us use == None, == True, == False so ignore PEP8 E711,712
-let g:pymode_lint_ignore = "E711,E712"
+let g:pymode_lint_ignore = "E711,E712,E501"
+let g:pymode_rope = 1
+let g:pymode_rope_autocomplete_map = "<C-Space>"
+let g:pymode_rope_auto_project = 1
+let g:pymode_rope_goto_def_newwin = ":tabe"
+
+
+" twilio test runner
+function! RunTestsInFile()
+    if(&ft=='php')
+        :execute "!" . "/usr/local/bin/phpunit -d memory_limit=512M -c /usr/local/twilio/src/php/tests/config.xml --bootstrap /usr/local/twilio/src/php/tests/bootstrap.php " . bufname('%') . ' \| grep -v Configuration \| egrep -v "^$" '
+    elseif(&ft=='python')
+        exec ":!" . ". venv/bin/activate; nosetests " . bufname('%') 
+    endif
+endfunction
+
+" more shortcut goodness
+nmap <leader>L :PyLint<CR>
+nmap <leader>a :Ack
+nmap <leader>A :AckAdd
+nmap <leader>b :Gblame<CR>
+nmap <leader>r :RunTestsInFile<CR>
+
+" Quick toggle for relative numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <leader>n :call NumberToggle()<cr>
+
+" enable them by default
+set relativenumber
