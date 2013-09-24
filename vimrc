@@ -229,7 +229,7 @@ nnoremap :Q! :qa!
 
 " pymode tweaks
 " SQLAlchemy makes us use == None, == True, == False so ignore PEP8 E711,712
-let g:pymode_lint_ignore = "E711,E712,E501"
+let g:pymode_lint_ignore = "E711,E712"
 let g:pymode_rope = 1
 let g:pymode_rope_autocomplete_map = "<C-Space>"
 let g:pymode_rope_auto_project = 1
@@ -257,6 +257,12 @@ nmap <leader>A :AckAdd
 nmap <leader>b :Gblame<CR>
 nmap <leader>r :call RunTestsInFile()<CR>
 
+" Dump things into OS X paste buffer
+vmap <leader>c :w !pbcopy<CR><CR>
+nnoremap <leader>c :.w !pbcopy .<CR><CR>
+
+
+
 " Quick toggle for relative numbers
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -273,3 +279,33 @@ set relativenumber
 
 " load command-t help fns
 :call pathogen#helptags()
+
+" Pretty format XML, for writing docs and shit
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()

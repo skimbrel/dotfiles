@@ -28,8 +28,12 @@ alias gfo='git fetch origin'
 alias gpo='git push origin'
 alias gps='git push skimbrel'
 alias gyo='git pull origin'
+alias sshv='cd ~/twilio/chef/vagrants/cluster && vagrant ssh'
+alias sharedenv='. ~/venv/bin/activate'
+alias localenv='. venv/bin/activate'
 
 . ~/.git-completion.sh
+complete -o default -o nospace -F _git g
 . ~/.bash_prompt
 
 shopt -s autocd # a command name that is the name of a directory is executed as if it were the argument to the cd command.
@@ -55,3 +59,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+. ~/.bashrc_local

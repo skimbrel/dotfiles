@@ -39,12 +39,13 @@ _update_prompt () {
 
   ## Initial prompt
   _prompt="[$e_white\h$e_normal:$e_cyan\w$e_normal]";
-  
+
   ## Color based on exit code
-  local bul="\342\200\242" # bullet character
+  local lookofd="\340\262\240_\340\262\240"; # look of disapproval
+  local lookofa="\312\230\342\200\277\312\230"; # look of approval
   case "$exit" in
-    "0" )  ex="$e_green:)$e_normal " ;;
-    *   )  ex="$e_bred:($e_normal "  ;;
+    "0" )  ex="$e_green$lookofa$e_normal " ;;
+    *   )  ex="$e_bred$lookofd$e_normal "  ;;
   esac
 
   ## Color current user
