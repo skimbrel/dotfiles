@@ -1,0 +1,20 @@
+[color]
+	diff = auto
+	status = auto
+	log = auto
+[branch]
+	autosetuprebase = always
+[core]
+	excludesfile = /Users/skimbrel/.gitignore_global
+[rerere]
+	enabled = true
+[alias]
+	s = status
+	d = diff
+	st = status
+	co = checkout
+	ctags = !.git/hooks/ctags
+[init]
+	templatedir = ~/.git_template
+[include]
+        path = ~/.gitconfig_local

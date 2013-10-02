@@ -12,3 +12,5 @@ git submodule update --init
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/ackrc ~/.ackrc
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
+ln -s ~/dotfiles/git_template ~/.git_template
+ln -s ~/dotfiles/gitconfig ~/.gitconfig
