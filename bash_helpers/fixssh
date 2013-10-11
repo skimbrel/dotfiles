@@ -1,5 +1,0 @@
-export SSH_CLIENT="10.10.7.184 49661 22"
-export SSH_TTY="/dev/pts/37"
-export SSH_AUTH_SOCK="/tmp/ssh-OmRhdl7790/agent.7790"
-export SSH_CONNECTION="10.10.7.184 49661 10.10.1.118 22"
-export DISPLAY=""

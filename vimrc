@@ -278,6 +278,8 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>n :call NumberToggle()<cr>
+" Open tags in new tabs
+nmap <C-]> <C-w><C-]><C-w>T
 
 " enable them by default
 set relativenumber
