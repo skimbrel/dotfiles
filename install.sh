@@ -14,3 +14,8 @@ ln -s ~/dotfiles/ackrc ~/.ackrc
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/git_template ~/.git_template
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
+
+mkdir -p ~/.local/bin
+mkdir -p ~/.vim/plugin
+ln -s ~/dotfiles/git-wip/git-wip ~/.local/bin/git-wip
+ln -s ~/dotfiles/git-wip/vim/plugin/git-wip.vim ~/.vim/plugin/git-wip.vim
