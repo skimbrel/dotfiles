@@ -31,6 +31,8 @@ alias gyo='git pull origin'
 alias sshv='cd ~/twilio/chef/vagrants/cluster && vagrant ssh'
 alias sharedenv='. ~/venv/bin/activate'
 alias localenv='. venv/bin/activate'
+alias igrep='grep -i'
+
 
 . ~/.git-completion.sh
 complete -o default -o nospace -F _git g
@@ -61,3 +63,4 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 . ~/.bashrc_local
+doge

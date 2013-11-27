@@ -14,7 +14,10 @@
 	st = status
 	co = checkout
 	ctags = !.git/hooks/ctags
+        br = branch
 [init]
 	templatedir = ~/.git_template
 [include]
         path = ~/.gitconfig_local
+[merge]
+	conflictstyle = diff3
