@@ -3,7 +3,7 @@
 	status = auto
 	log = auto
 [branch]
-	autosetuprebase = always
+	autosetuprebase = remote
 [core]
 	excludesfile = /Users/skimbrel/.gitignore_global
 [rerere]
@@ -15,6 +15,7 @@
 	co = checkout
 	ctags = !.git/hooks/ctags
         br = branch
+        repoint = branch --set-upstream-to
 [init]
 	templatedir = ~/.git_template
 [include]
