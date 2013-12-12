@@ -32,6 +32,7 @@ alias sshv='cd ~/twilio/chef/vagrants/cluster && vagrant ssh'
 alias sharedenv='. ~/venv/bin/activate'
 alias localenv='. venv/bin/activate'
 alias igrep='grep -i'
+alias big='osascript ~/.scripts/largetext.scpt'
 
 
 . ~/.git-completion.sh
