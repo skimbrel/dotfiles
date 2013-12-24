@@ -31,3 +31,6 @@
 [submodule "bundle/vim-numbertoggle"]
 	path = bundle/vim-numbertoggle
 	url = git://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+[submodule "git-wip"]
+	path = git-wip
+	url = git@github.com:bartman/git-wip.git

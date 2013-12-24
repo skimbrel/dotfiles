@@ -31,6 +31,9 @@ alias gyo='git pull origin'
 alias sshv='cd ~/twilio/chef/vagrants/cluster && vagrant ssh'
 alias sharedenv='. ~/venv/bin/activate'
 alias localenv='. venv/bin/activate'
+alias igrep='grep -i'
+alias big='osascript ~/.scripts/largetext.scpt'
+
 
 . ~/.git-completion.sh
 complete -o default -o nospace -F _git g
@@ -62,3 +65,4 @@ export PATH="$HOME/.cabal/bin:$PATH"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 . ~/.bashrc_local
+doge

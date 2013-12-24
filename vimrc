@@ -147,6 +147,11 @@ if has('autocmd')
     autocmd BufEnter *.java setlocal shiftwidth=8   " autoindent
     autocmd BufEnter *.java setlocal tabstop=8      " width of existing physical tabs
     autocmd BufEnter *.java setlocal softtabstop=8  " distance Tab key moves
+    " twilio php wants tabs
+    autocmd BufEnter *twilio*/php*.php setlocal noexpandtab
+    autocmd BufEnter *twilio*/php*.php setlocal shiftwidth=8
+    autocmd BufEnter *twilio*/php*.php setlocal tabstop=8
+    autocmd BufEnter *twilio*/php*.php setlocal softtabstop=8
 endif
 
 " Indentation settings for using 4 spaces instead of tabs.
@@ -273,6 +278,8 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>n :call NumberToggle()<cr>
+" Open tags in new tabs
+nmap <C-]> <C-w><C-]><C-w>T
 
 " enable them by default
 set relativenumber

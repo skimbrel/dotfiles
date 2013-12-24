@@ -1,0 +1,24 @@
+[color]
+	diff = auto
+	status = auto
+	log = auto
+[branch]
+	autosetuprebase = remote
+[core]
+	excludesfile = /Users/skimbrel/.gitignore_global
+[rerere]
+	enabled = true
+[alias]
+	s = status
+	d = diff
+	st = status
+	co = checkout
+	ctags = !.git/hooks/ctags
+        br = branch
+        repoint = branch --set-upstream-to
+[init]
+	templatedir = ~/.git_template
+[include]
+        path = ~/.gitconfig_local
+[merge]
+	conflictstyle = diff3
