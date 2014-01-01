@@ -69,4 +69,3 @@ export PATH="$HOME/.cabal/bin:$PATH"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 . ~/.bashrc_local
-doge
