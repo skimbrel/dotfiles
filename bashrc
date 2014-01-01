@@ -34,6 +34,10 @@ alias localenv='. venv/bin/activate'
 alias igrep='grep -i'
 alias big='osascript ~/.scripts/largetext.scpt'
 
+waitfor() {
+    $@ ; big done
+}
+
 
 . ~/.git-completion.sh
 complete -o default -o nospace -F _git g
