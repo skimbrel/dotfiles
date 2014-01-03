@@ -33,6 +33,7 @@ alias sharedenv='. ~/venv/bin/activate'
 alias localenv='. venv/bin/activate'
 alias igrep='grep -i'
 alias big='osascript ~/.scripts/largetext.scpt'
+alias replyto='python3 -c "import random; print(chr(random.randint(9984,10175)),end=\"\")" | tee >(pbcopy); echo'
 
 
 . ~/.git-completion.sh
@@ -56,6 +57,11 @@ set -o vi
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
+
+# Run a command and snarfle its output into the OS X paste buffer
+function grab {
+    $@ | tee >(pbcopy)
+}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
