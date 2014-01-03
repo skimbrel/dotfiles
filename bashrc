@@ -35,6 +35,10 @@ alias igrep='grep -i'
 alias big='osascript ~/.scripts/largetext.scpt'
 alias replyto='python3 -c "import random; print(chr(random.randint(9984,10175)),end=\"\")" | tee >(pbcopy); echo'
 
+waitfor() {
+    $@ ; big done
+}
+
 
 . ~/.git-completion.sh
 complete -o default -o nospace -F _git g
@@ -76,4 +80,3 @@ export PATH="$HOME/.cabal/bin:$PATH"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 . ~/.bashrc_local
-doge

@@ -19,3 +19,5 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.vim/plugin
 ln -s ~/dotfiles/git-wip/git-wip ~/.local/bin/git-wip
 ln -s ~/dotfiles/git-wip/vim/plugin/git-wip.vim ~/.vim/plugin/git-wip.vim
+
+ln -s ~/dotfiles/scripts ~/.scripts
