@@ -63,6 +63,11 @@ function grab {
     $@ | tee >(pbcopy)
 }
 
+# Same, but grab stderr too.
+function graberr {
+    $@ 2>&1 | tee >(pbcopy)
+}
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
