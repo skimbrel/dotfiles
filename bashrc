@@ -36,7 +36,7 @@ alias big='osascript ~/.scripts/largetext.scpt'
 alias replyto='python3 -c "import random; print(chr(random.randint(9984,10175)),end=\"\")" | tee >(pbcopy); echo'
 
 waitfor() {
-    $@ ; big done
+    "$@" ; big done
 }
 
 
@@ -69,7 +69,7 @@ function grab {
 
 # Same, but grab stderr too.
 function graberr {
-    $@ 2>&1 | tee >(pbcopy)
+    "$@" 2>&1 | tee >(pbcopy)
 }
 
 ### Added by the Heroku Toolbelt
