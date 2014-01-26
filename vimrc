@@ -316,3 +316,6 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
+
+" Load local config, if it exists
+:source ~/.vimrc_local
