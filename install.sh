@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ## Shell configuration
-ln -s ~/dotfiles/bash_helpers ~/.bash_helpers
 ln -s ~/dotfiles/git-completion.sh ~/.git-completion.sh
 ln -s ~/dotfiles/bash_prompt ~/.bash_prompt
 ln -s ~/dotfiles/bashrc ~/.bashrc
