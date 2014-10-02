@@ -17,6 +17,7 @@ call pathogen#infect()
 
 " Set Solarized color scheme.
 syntax on
+filetype on
 set background=dark
 set t_Co=256
 colorscheme solarized
@@ -260,7 +261,9 @@ nmap <leader>L :PyLint<CR>
 nmap <leader>a :Ack
 nmap <leader>A :AckAdd
 nmap <leader>b :Gblame<CR>
-nmap <leader>r :call RunTestsInFile()<CR>
+"nmap <leader>r :call RunTestsInFile()<CR>
+nmap <leader>e :cnext<CR>
+
 
 " Dump things into OS X paste buffer
 vmap <leader>c :w !pbcopy<CR><CR>
@@ -316,3 +319,6 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
+
+" Extra filetype mappings that vim doesn't know about
+au BufNewFile,BufRead *.md set filetype=markdown

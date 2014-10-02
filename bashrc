@@ -34,6 +34,12 @@ alias localenv='. venv/bin/activate'
 alias igrep='grep -i'
 alias big='osascript ~/.scripts/largetext.scpt'
 alias replyto='python3 -c "import random; print(chr(random.randint(9984,10175)),end=\"\")" | tee >(pbcopy); echo'
+alias tbhno='kill %1'
+alias reload="source ~/.bashrc"
+alias fmtjs='python -mjson.tool'
+alias fmtxml='xmllint --format -'
+alias gitjk='history 10 | tail -r | gitjk_cmd'
+alias shit='sudo $(history -p \!\!)'
 
 waitfor() {
     "$@" ; big done
@@ -70,6 +76,12 @@ function grab {
 # Same, but grab stderr too.
 function graberr {
     "$@" 2>&1 | tee >(pbcopy)
+}
+
+function fuck() {
+  if killall "$2"; then
+    echo ; echo " (╯°□°）╯︵$(toilet -f term -F rotate $2)"; echo
+  fi
 }
 
 ### Added by the Heroku Toolbelt
