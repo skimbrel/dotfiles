@@ -24,9 +24,7 @@
         path = ~/.gitconfig_local
 [merge]
 	conflictstyle = diff3
-[user]
-	email = sam@twilio.com
-	name = Sam Kitajima-Kimbrel
+
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
