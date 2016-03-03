@@ -325,4 +325,3 @@ au BufNewFile,BufRead *.md set filetype=markdown
 " Load local config, if it exists
 :source ~/.vimrc_local
 
-:AirlineTheme solarized

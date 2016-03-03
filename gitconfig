@@ -6,6 +6,8 @@
 	autosetuprebase = remote
 [core]
 	excludesfile = /Users/skimbrel/.gitignore_global
+	pager = diff-highlight | diff-so-fancy | less -r
+        editor = vim
 [rerere]
 	enabled = true
 [alias]
@@ -22,3 +24,11 @@
         path = ~/.gitconfig_local
 [merge]
 	conflictstyle = diff3
+[user]
+	email = sam@twilio.com
+	name = Sam Kitajima-Kimbrel
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
