@@ -19,7 +19,6 @@ call pathogen#infect()
 syntax on
 filetype on
 set background=dark
-set t_Co=256
 colorscheme solarized
 
 " URL: http://vim.wikia.com/wiki/Example_vimrc
@@ -325,3 +324,5 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 " Load local config, if it exists
 :source ~/.vimrc_local
+
+:AirlineTheme solarized

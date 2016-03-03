@@ -43,3 +43,9 @@
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = git@github.com:rking/ag.vim.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "bundle/vim-airline-themes"]
+	path = bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
