@@ -20,16 +20,13 @@ touch ~/.zshrc_local
 
 ## Vim plugins and configuration
 
-# Set up pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# Set up vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Link bundle directory and install submodules into it
-ln -s ~/dotfiles/bundle ~/.vim/bundle
-git submodule update --init
 ln -s ~/dotfiles/vimrc ~/.vimrc
 
 mkdir -p ~/.local/bin
-mkdir -p ~/.vim/plugin
 
 ## Git
 ln -s ~/dotfiles/gitignore_global ~/.gitignore_global

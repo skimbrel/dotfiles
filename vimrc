@@ -12,8 +12,30 @@ function! ImportList(name)
 endfunction
 command! -nargs=1 ImportList :call ImportList("<args>")
 
-" Load modules with Pathogen.
-call pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-abolish'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'wincent/command-t'
+Plug 'reinh/vim-makegreen'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'dense-analysis/ale'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
 
 " Set Solarized color scheme.
 syntax on
