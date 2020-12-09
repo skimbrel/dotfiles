@@ -6,7 +6,6 @@
 	autosetuprebase = remote
 [core]
 	excludesfile = /Users/skimbrel/.gitignore_global
-	pager = diff-highlight | diff-so-fancy | less -r
         editor = vim
 [rerere]
 	enabled = true
@@ -30,3 +29,5 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[credential]
+	helper = osxkeychain
