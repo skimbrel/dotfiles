@@ -308,9 +308,6 @@ nmap <C-]> <C-w><C-]><C-w>T
 " enable them by default
 set relativenumber
 
-" load command-t help fns
-:call pathogen#helptags()
-
 " Pretty format XML, for writing docs and shit
 function! DoPrettyXML()
   " save the filetype so we can restore it later

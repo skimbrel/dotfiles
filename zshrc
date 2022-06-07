@@ -29,6 +29,7 @@ alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { p
 alias tm='open -a TextMate'
 alias h='ssh'
 alias gfo='git fetch origin'
+alias gfr='git checkout master && git fetch origin && git pull --rebase origin master'
 alias gpo='git push origin'
 alias gps='git push skimbrel'
 alias gyo='git pull origin'
@@ -65,9 +66,9 @@ function graberr {
     "$@" 2>&1 | tee >(pbcopy)
 }
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
-source ~/z/z.sh
+source ~/z-zsh/z.sh
 alias j=z
 
 if [ -f ~/.zshrc_local ]; then
